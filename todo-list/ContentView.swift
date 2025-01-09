@@ -8,14 +8,28 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var isShowingNewItemView = false
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            VStack {
+                
+            }
+            .navigationTitle("To Do List")
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        isShowingNewItemView = true
+                    } label: {
+                        Image(systemName: "plus")
+                            .foregroundStyle(.pink)
+                    }
+                }
+            }
+            .sheet(isPresented: $isShowingNewItemView, content: {
+                NewItem()
+            })
         }
-        .padding()
     }
 }
 
