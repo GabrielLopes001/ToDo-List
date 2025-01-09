@@ -13,6 +13,8 @@ class NewItemViewModel: ObservableObject {
     @Published var dateDue =  Date()
     @Published var showAlert = false
     
+    
+    
     init() {}
     
     func save() {}
